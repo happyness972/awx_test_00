@@ -1,0 +1,13 @@
+- hosts: all
+  sudo: yes
+  become: yes
+  gather_facts: yes
+
+  tasks:
+  - name: echo
+    command: 'ls -al /etc/'
+    register: do
+
+  - debug:
+      msg: "{{ do }}"
+
